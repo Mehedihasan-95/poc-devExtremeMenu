@@ -1,0 +1,17 @@
+.loader-login {
+  animation: loader 1.2s cubic-bezier(.68, -0.55, .27, 1.55) infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.width-3rem {
+  width: 3rem;
+}

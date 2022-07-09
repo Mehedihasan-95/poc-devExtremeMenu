@@ -1,0 +1,82 @@
+<div class="container">
+
+    <div class="dx-card py-3 position-relative ">
+        <div [ngClass]="isLoaderVisible ? 'loader' : ''"></div>
+        <div class="dx-header mb-4">Feature List</div>
+        <dx-data-grid id="gridContainer" [dataSource]="onlyParentFeatures" [rowAlternationEnabled]="true"
+            (onRowClick)="onSelectParent($event.data)" [showBorders]="true" (onRowUpdated)="updateFeature($event.data)"
+            (onRowInserted)="createFeature($event.data)" (onRowRemoved)="deleteFeature($event.data)">
+
+            <dxo-paging [pageSize]="10"></dxo-paging>
+            <dxo-editing [allowUpdating]="permissions.edit" [allowAdding]="permissions.add"
+                [allowDeleting]="permissions.delete" [useIcons]="true">
+            </dxo-editing>
+
+            <dxo-toolbar>
+                <dxi-item location="before" name="searchPanel" cssClass="p-dxSearchPanel" locateInMenu="auto">
+                </dxi-item>
+                <dxi-item location="before" name="addRowButton" cssClass="p-dxAddBtn" locateInMenu="auto">
+                </dxi-item>
+
+            </dxo-toolbar>
+
+            <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 25, 50, 100]"></dxo-pager>
+            <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+            <dxi-column dataField="name" required>
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="iconName" caption="Icon" alignment="center">
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+            </dxi-column>
+            <dxi-column dataField="url" caption="Path" dataType="string" alignment="center">
+                <!-- <dxi-validation-rule type="required"></dxi-validation-rule> -->
+            </dxi-column>
+            <dxi-column dataField="order" dataType="string" alignment="center">
+                <dxi-validation-rule type="required"></dxi-validation-rule>
+                <dxi-validation-rule type="numeric"></dxi-validation-rule>
+            </dxi-column>
+        </dx-data-grid>
+    </div>
+</div>
+
+
+<dx-popup [width]="'70%'" [height]="'70%'" [showTitle]="true" [dragEnabled]="false" [closeOnOutsideClick]="true"
+    [showCloseButton]="false" [(visible)]="popupVisible">
+
+    <dxi-toolbar-item text="Sub Feature List" location="center"></dxi-toolbar-item>
+
+    <dx-data-grid id="gridContainer" [dataSource]="selectedParentsChild" [rowAlternationEnabled]="true"
+        [showBorders]="true" (onRowUpdated)="updateFeature($event.data)"
+        (onRowInserted)="createFeature($event.data, true)" (onRowRemoved)="deleteFeature($event.data)">
+
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-editing [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true" [useIcons]="true">
+        </dxo-editing>
+
+        <dxo-toolbar>
+            <dxi-item location="before" name="searchPanel" cssClass="p-dxSearchPanel" locateInMenu="auto">
+            </dxi-item>
+            <dxi-item location="before" name="addRowButton" cssClass="p-dxAddBtn" locateInMenu="auto">
+            </dxi-item>
+        </dxo-toolbar>
+
+        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 25, 50, 100]"></dxo-pager>
+        <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+        <dxi-column dataField="name" caption="Name">
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-column>
+        <dxi-column dataField="iconName" alignment="center">
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-column>
+        <dxi-column dataField="url" caption="Path" dataType="string" alignment="center">
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dxi-column>
+        <dxi-column dataField="order" dataType="string" alignment="center">
+            <dxi-validation-rule type="required"></dxi-validation-rule>
+            <dxi-validation-rule type="numeric"></dxi-validation-rule>
+        </dxi-column>
+    </dx-data-grid>
+
+</dx-popup>

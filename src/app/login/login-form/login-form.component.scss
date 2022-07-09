@@ -1,0 +1,57 @@
+@import "../../../themes/generated/variables.base.scss";
+
+
+.login-form {
+  .link {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  ::ng-deep .form-text {
+    margin: 10px 0;
+    color: rgba($base-text-color, alpha($base-text-color) * 0.7);
+  }
+}
+.form{
+  min-height: 36rem;
+}
+
+.form-bg {
+  background: rgba(0, 0, 0, .50);
+}
+
+.login-bg {
+  background-image: url(../../../assets/img/logo/login-bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo {
+  max-width: 8rem;
+}
+
+
+
+@media screen and (min-width:1400px) {
+  .welcome-text h3 {
+    max-width: 58rem;
+  }
+}
+
+@media screen and (max-width:991px) {
+  .screen-md {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+}
+

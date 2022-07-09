@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="dx-card py-3 position-relative">
+        <div [ngClass]="isLoaderVisible ? 'loader' : ''"></div>
+        <div class="dx-header">Feature Assign</div>
+
+        <div class="py-4 d-flex justify-content-center ">
+
+            <dx-select-box 
+                stylingMode="outlined" 
+                [width]="400" 
+                [items]="roleList" 
+                placeholder="Select Roles"
+                [displayExpr]="'name'" 
+                [valueExpr]="'id'" 
+                [(value)]="selectedRoleId"
+                (onValueChanged)="loadPermissions(this.selectedRoleId)">
+            </dx-select-box>
+
+        </div>
+
+
+        <div class="text-center py-3 text-uppercase">
+            <h6 class="font-weight-600 feature-config">Features Configuration</h6>
+        </div>
+        <dx-tree-list
+            [disabled]="isRoleSelected ? false: true"
+            id="featureList" 
+            [dataSource]="DataSource" 
+            keyExpr="id" 
+            parentIdExpr="parentId"
+            [columnAutoWidth]="true" 
+            [wordWrapEnabled]="true" 
+            [showBorders]="true"
+            [(selectedRowKeys)]="selectedFeatureKeys" 
+            (onRowUpdated)="onFeatureUpdate($event.data)"
+            (onSelectionChanged)="onSelectionChange($event)">
+
+            <dxo-selection mode="multiple" [recursive]="false" [allowSelectAll]=" true"></dxo-selection>
+            <dxo-editing mode="cell" [allowUpdating]="pagePermissions.edit">
+            </dxo-editing>
+            <dxi-column dataField="name" [allowEditing]="false"></dxi-column>
+            <dxi-column dataField="add" [allowSorting]="false" caption="Add" [width]="100" showCheckBoxesMode="normal">
+            </dxi-column>
+            <dxi-column dataField="edit" [allowSorting]="false" caption="Edit" [width]="100"></dxi-column>
+            <dxi-column dataField="delete" [allowSorting]="false" caption="Delete" [width]="130">
+            </dxi-column>
+        </dx-tree-list>
+
+        <div class="text-center mt-4">
+            <dx-button (onClick)="updatePermissions()" type="default" width="150" [disabled]="!pagePermissions.edit">
+                Update</dx-button>
+        </div>
+
+
+
+
+    </div>
+
+</div>

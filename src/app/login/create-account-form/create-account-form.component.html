@@ -1,0 +1,79 @@
+<div class="color-white d-flex justify-content-center pb-3">
+  <h4 class="font-weight-600">Sign Up</h4>
+</div>
+
+<!-- User Create form -->
+<form class="login-form" (submit)="onFormCreate($event) ">
+  <dx-form id="form" [formData]="createUser" [disabled]="loading">
+
+    <!-- Username field -->
+    <dxi-item dataField="UserName" editorType="dxTextBox" cssClass="login-input-field user" [editorOptions]="
+        { 
+          stylingMode: 'outlined', 
+          placeholder: 'Name *',
+          value: createUser.UserName
+         }">
+         <dxi-validation-rule type="pattern" [pattern]="namePattern" message="Only alphabet & number allowed"></dxi-validation-rule>
+      <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <!-- phone number field -->
+    <dxi-item dataField="CellNo" editorType="dxTextBox" cssClass="login-input-field phone" [editorOptions]="
+        { 
+          mask: '+88 000-0000-0000',
+          maskRules: phoneRules,
+         
+          stylingMode: 'outlined', 
+          placeholder: 'Phone Number *', 
+          mode: 'Phone',
+          value: createUser.CellNo
+        }">
+      <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <!-- email field -->
+    <dxi-item dataField="eMail" editorType="dxTextBox" cssClass="login-input-field email" [editorOptions]="
+        { 
+          stylingMode: 'outlined', 
+          placeholder: 'Email *', 
+          mode: 'email' ,
+          value: createUser.eMail
+        }">
+      <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+      <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+      <!-- <dxi-validation-rule type="async" message="Email is already registered" [validationCallback]="asyncValidation"> </dxi-validation-rule> -->
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <!-- pasword filed -->
+    <dxi-item dataField="Password" editorType="dxTextBox" cssClass="login-input-field password mb-0 pb-0"
+      [editorOptions]="{  stylingMode: 'outlined', placeholder: 'Password *', mode: 'password', value: createUser.Password}">
+      <dxi-validation-rule type="pattern" [pattern]="passPattern" message="Min 8 & max 16 characters, at least 1 letter and 1 number"></dxi-validation-rule>
+      <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <!-- Confirm pasword filed -->
+    <dxi-item editorType="dxTextBox" cssClass="login-input-field password mb-0 pb-0"
+      [editorOptions]="{  stylingMode: 'outlined', placeholder: 'Confirm Password *', mode: 'password' }">
+      <dxi-validation-rule type="required" message="Confirm Password is required"></dxi-validation-rule>
+      <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison"
+        message="Password and Confirm Password do not match">
+      </dxi-validation-rule>
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <!-- register button -->
+    <dxi-item itemType="button" horizontalAlignment="center" [buttonOptions]="buttonOptions"></dxi-item>
+
+    <dxi-item class="login-input-field form-button">
+      <div class="d-flex w-100 flex-column align-items-center  ">
+        <div class="color-white py-2">Or </div>
+        <dx-button class="create-btn" stylingMode="outlined" text="LOGIN" (onClick)="onLoginPage()" [width]="200">
+        </dx-button>
+      </div>
+    </dxi-item>
+  </dx-form>
+</form>

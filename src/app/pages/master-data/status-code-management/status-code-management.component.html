@@ -1,0 +1,29 @@
+<div class="container-fluid">
+
+    <div class="dx-card">
+        <div class="dx-header"> Status Code Management</div>
+
+        <div class="py-3">
+            <dx-data-grid [dataSource]="dataSource" [showBorders]="true" [rowAlternationEnabled]="true">
+                <dxo-editing [allowDeleting]="true" [allowUpdating]="true" [allowAdding]="true">
+                </dxo-editing>
+                <dxo-search-panel [visible]="true"></dxo-search-panel>
+                <dxo-toolbar>
+                    <dxi-item location="before" name="searchPanel" cssClass="p-dxSearchPanel" locateInMenu="auto">
+                    </dxi-item>
+                    <dxi-item location="before" name="addRowButton" cssClass="p-dxAddBtn" locateInMenu="auto">
+                    </dxi-item>
+                </dxo-toolbar>
+
+                <dxi-column dataField="pageName" caption="Page">
+                    <dxo-lookup [dataSource]="pages">
+                    </dxo-lookup>
+                </dxi-column>
+                <dxi-column dataField="statusName"></dxi-column>
+                <dxi-column dataField="description"></dxi-column>
+
+            </dx-data-grid>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/common.scss';
+@import './assets/scss/responsive.scss';
+@import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0';
+
+
+
+// Bootstrap
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/grid';
+
+body {
+  font-family: 'Roboto' !important;
+}
+
+.container {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("./assets/fonts/Roboto-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Roboto-Regular.woff") format("woff")
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: medium;
+  font-weight: 600;
+  src: local("Roboto Medium"), local("Roboto-Medium"),
+    url("./assets/fonts/Roboto-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Roboto-Medium.woff") format("woff"),
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: bold;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"),
+    url("./assets/fonts/Roboto-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Roboto-Bold.woff") format("woff"),
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: bolder;
+  font-weight: 900;
+  src: local("Roboto Black"), local("Roboto-Black"),
+    url("./assets/fonts/Roboto-Black.woff2") format("woff2"),
+    url("./assets/fonts/Roboto-Black.woff") format("woff"),
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.25rem;
+  margin-left: -0.25rem;
+
+  >* {
+    padding-left: .25rem;
+    padding-right: .25rem;
+  }
+}
+.arrow-back-btn {
+  line-height: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  background: transparent;
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  &:hover, &:active{background: #f1f1f1;}
+}
+.ps-4_3{padding-left: 2.3rem;}
+.dx-header {
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #c9c9c9;
+  margin: auto -1rem;
+}
+// dxloader-indicatior
+
+
+
+.dx-header::before {
+  content: '';
+  margin-left: 1rem;
+}
+dx-tree-list .dx-treelist-headers, 
+dx-data-grid  .dx-datagrid-headers {
+  background-color: #3D4551;
+  color: var(--color-white);
+}
+dx-tree-list .dx-treelist-headers .dx-treelist-table .dx-row>td,
+dx-data-grid .dx-datagrid-headers .dx-datagrid-table .dx-row>td {
+  font-family: 'Roboto';
+  font-weight: 600;
+  font-size: .9rem !important;
+}
+
+dx-data-grid .dx-datagrid-table .dx-header-row>td {
+    padding-top: 0.8rem !important;
+    padding-bottom: .8rem !important;
+  }

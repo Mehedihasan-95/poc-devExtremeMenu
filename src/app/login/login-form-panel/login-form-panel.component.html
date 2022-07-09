@@ -1,0 +1,57 @@
+ <!-- login form -->
+ <form class="login-form" (submit)="onFormSubmit($event) ">
+    <dx-form [formData]="loginUser">
+
+      <!-- email field -->
+      <dxi-item dataField="Email" editorType="dxTextBox" cssClass="login-input-field email" [editorOptions]="
+          { 
+            stylingMode: 'outlined', 
+            placeholder: 'Email *', 
+            mode: 'email' ,
+            value:loginUser.Email
+          }">
+        <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+        <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+        <dxo-label [visible]="false"></dxo-label>
+      </dxi-item>
+
+      <!-- pasword filed -->
+      <dxi-item dataField="Password" editorType="dxTextBox" cssClass="login-input-field password mb-0 pb-0"
+        [editorOptions]="{  stylingMode: 'outlined', placeholder: 'Password *', mode: 'password', value:loginUser.Password }">
+        <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
+        <dxo-label [visible]="false"></dxo-label>
+      </dxi-item>
+
+      <!-- remember Me & forgot pass  -->
+      <dxi-item *ngIf="!isLoading" class="login-input-field remember-me px-3">
+        <div class="d-flex justify-content-between">
+          <dx-check-box text="Remember Me"></dx-check-box>
+          <a class="link-reset" routerLink="" (click)="sendFromStateEvent('forgotPass')">Forgot password?</a>
+        </div>
+      </dxi-item>
+    
+      <dxi-item *ngIf="!isLoading" itemType="button" horizontalAlignment="center" [buttonOptions]="buttonOptions" ></dxi-item>
+
+      <!-- login button -->
+      <dxi-item  *ngIf="!isLoading" class="login-input-field form-button">
+        <div class="d-flex w-100 flex-column align-items-center ">
+          
+          <div class="color-white py-2">Or </div>
+          
+          <dx-button (onClick)="sendFromStateEvent('createAccount')"
+          class="create-btn" 
+          stylingMode="outlined" 
+          text="Create account" 
+          [width]="200">
+        </dx-button>
+      </div>
+    </dxi-item>
+      
+    <dxi-item *ngIf="isLoading" horizontalAlignment="center" >
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <img class="img-fluid loader-login" src="assets/img/icons/loader.svg"/> 
+      </div>
+    </dxi-item>
+
+    </dx-form>
+  </form>

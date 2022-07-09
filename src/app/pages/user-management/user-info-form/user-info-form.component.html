@@ -1,0 +1,164 @@
+<form (submit)="onFormSubmit($event)" class="position-relative">
+    <div [ngClass]="isLoaderVisible ? 'loader' : ''"></div>
+    <dx-form id="form" [formData]="userInfo" [disabled]="loading" [colCount]="3">
+
+        <!-- Username field -->
+        <dxi-item dataField="user.userName" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{ placeholder:'Enter name', stylingMode: 'outlined', height:40}">
+            <dxi-validation-rule type="required" message="Username is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Name"></dxo-label>
+        </dxi-item>
+
+        <!-- email field -->
+        <dxi-item dataField="user.eMail" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{ stylingMode: 'outlined', height:40, mode: 'email', placeholder:'Enter email' }">
+
+            <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+            <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Email Address"></dxo-label>
+        </dxi-item>
+
+        <!-- phone field -->
+        <dxi-item dataField="user.cellNo" editorType="dxTextBox" cssClass="fix-label-position" [editorOptions]="{ stylingMode: 'outlined', 
+            height:40, 
+            mask: '+88 000-0000-0000', 
+            maskRules: phoneRules,
+            mode: 'Phone',
+            placeholder: 'Enter phone number' }">
+
+            <dxi-validation-rule type="required" message="phone Number is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Phone Number"></dxo-label>
+        </dxi-item>
+
+        <!-- Role field -->
+        <dxi-item dataField="user.roleId" cssClass="fix-label-position" editorType="dxSelectBox" [editorOptions]="{ stylingMode: 'outlined', height:40, dataSource: roles, valueExpr: 'id', 
+            displayExpr:'name' }">
+            <dxi-validation-rule type="required" message="Select a role"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Select Role"></dxo-label>
+        </dxi-item>
+
+        <!-- Registration  ID field -->
+        <dxi-item dataField="regNo" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter registration number', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="Registration ID is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Registration ID"></dxo-label>
+        </dxi-item>
+
+        <!-- Ship No. field -->
+        <dxi-item dataField="shipNo" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{ placeholder:'Enter ship number', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="Ship number is required"></dxi-validation-rule>
+            <dxi-validation-rule type="numeric" message="Ship number is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Ship No."></dxo-label>
+        </dxi-item>
+
+        <!-- Ship Name field -->
+        <dxi-item dataField="shipName" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter name', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="Ship name is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Ship Name"></dxo-label>
+        </dxi-item>
+
+        <!-- Main Line Operator field -->
+        <dxi-item dataField="mlo" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter name', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="Ship name is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Main Line Operator"></dxo-label>
+        </dxi-item>
+
+        <!-- Upload Permission Letter field -->
+        <dxi-item dataField="shipname" cssClass="fix-label-position"
+            [editorOptions]="{stylingMode: 'outlined', height:40}">
+            <div class="file-upload">
+                <input type="file" id="formFile" accept=".png, .jpeg, .jpg, .pdf" />
+            </div>
+            <dxo-label [visible]="true" location="top" text="Upload Permission Letter"></dxo-label>
+        </dxi-item>
+
+        <!-- Shipping Agent Name field -->
+        <dxi-item dataField="shipAgent" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter name', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="Agent name is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Shipping Agent Name"></dxo-label>
+        </dxi-item>
+
+        <!-- Shipping Agent Licence field -->
+        <dxi-item dataField="shipAgentLicense" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter licence number', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="Ship name is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Shipping Agent Licence"></dxo-label>
+        </dxi-item>
+
+        <!-- Upload Licence File field -->
+        <dxi-item dataField="shipname" cssClass="fix-label-position"
+            [editorOptions]="{stylingMode: 'outlined', height:40}">
+            <div class="file-upload">
+                <input type="file" id="formFile" accept=".png, .jpeg, .jpg, .pdf" />
+            </div>
+            <dxo-label [visible]="true" location="top" text="Upload Licence File"></dxo-label>
+        </dxi-item>
+
+        <!-- Contacted Person’s Name field -->
+        <dxi-item dataField="contactPersonName" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter name', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="A Name is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Contacted Person's Name"></dxo-label>
+        </dxi-item>
+
+        <!-- Contacted Person’s phone field -->
+        <dxi-item dataField="contactPersonCell" cssClass="fix-label-position" editorType="dxTextBox" [editorOptions]="{ stylingMode: 'outlined', 
+            height:40, 
+            mask: '+88 000-0000-0000', 
+            maskRules: phoneRules,
+            mode: 'Phone',
+            placeholder: 'Enter phone number' }">
+
+            <dxi-validation-rule type="required" message="phone number is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Contacted Person's Phone Number"></dxo-label>
+        </dxi-item>
+
+        <!-- email field -->
+        <dxi-item dataField="contactPersonEmail" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{ stylingMode: 'outlined', height:40, mode: 'email', placeholder:'Enter email' }">
+
+            <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+            <dxi-validation-rule type="email" message="Email is invalid"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Contacted Person's Email "></dxo-label>
+        </dxi-item>
+
+        <!-- Contacted Person’s Designation field -->
+        <dxi-item dataField="contactPersonDesignation" cssClass="fix-label-position" editorType="dxTextBox"
+            [editorOptions]="{placeholder:'Enter designation', stylingMode: 'outlined', height:40}">
+
+            <dxi-validation-rule type="required" message="A Name is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Contacted Person's Designation"></dxo-label>
+        </dxi-item>
+
+        <!-- pasword filed -->
+        <dxi-item dataField="user.password" cssClass="fix-label-position" aria-autocomplete="false"
+            [editorOptions]="{  stylingMode: 'outlined', placeholder: 'Password', mode: 'password',height:40}">
+            <dxi-validation-rule type="required" message="Password is required"></dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Password"></dxo-label>
+        </dxi-item>
+
+        <!-- Confirm pasword filed -->
+        <dxi-item editorType="dxTextBox" cssClass="fix-label-position"
+            [editorOptions]="{  stylingMode: 'outlined', placeholder: 'Confirm Password', mode: 'password',height:40 }">
+            <dxi-validation-rule type="required" message="Confirm Password is required"></dxi-validation-rule>
+            <dxi-validation-rule type="compare" [comparisonTarget]="passwordComparison" message="Password do not match">
+            </dxi-validation-rule>
+            <dxo-label [visible]="true" location="top" text="Confirm Password"></dxo-label>
+        </dxi-item>
+
+        <dxi-item [colSpan]="3" itemType="button" horizontalAlignment="center" [buttonOptions]="submitButtonOptions">
+        </dxi-item>
+
+    </dx-form>
+</form>

@@ -1,0 +1,14 @@
+<ng-container *ngIf="isAuthenticated(); else unauthenticated">
+  <app-side-nav-inner-toolbar title="{{appInfo.title}}">
+    <router-outlet></router-outlet>
+    <app-footer>
+      <div class="text-center">
+        Developed by INTELIIER Ltd. 😎
+      </div>
+    </app-footer>
+  </app-side-nav-inner-toolbar>
+</ng-container>
+
+<ng-template #unauthenticated>
+  <app-login-form></app-login-form>
+</ng-template>

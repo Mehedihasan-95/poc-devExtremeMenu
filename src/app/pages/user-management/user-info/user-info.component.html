@@ -1,0 +1,57 @@
+<div class="container-fluid">
+
+    <div class="dx-card position-relative">
+        <div [ngClass]="isLoaderVisible ? 'loader' : ''"></div>
+        <div class="dx-header">
+            <span *ngIf="compState==states.userList">User List</span>
+            <span *ngIf="compState==states.form" class="d-inline-flex align-items-center">
+                <span class="material-symbols-outlined arrow-back-btn" (click)="manageState(states.userList)">
+                    chevron_left</span>
+                <span class="ps-4_3">User Registration</span>
+            </span>
+
+        </div>
+
+        <div *ngIf="compState===states.userList" class="py-3">
+
+            <dx-data-grid 
+                [dataSource]="users" 
+                [showBorders]="true" 
+                [rowAlternationEnabled]="true"
+                (onEditingStart)="manageEdit($event.data)" 
+                (onRowRemoved)="deleteUser($event.data.id)">
+
+                <dxo-editing [allowDeleting]="permissions.delete" [allowUpdating]="permissions.edit"
+                    [allowAdding]="permissions.add">
+                </dxo-editing>
+
+                <dxo-search-panel [visible]="true"></dxo-search-panel>
+                <dxo-toolbar>
+                    <dxi-item location="before" name="searchPanel" cssClass="p-dxSearchPanel" locateInMenu="auto">
+                    </dxi-item>
+                    <dxi-item location="before" widget="dxButton" [options]="addButtonOptions" cssClass="p-dxAddBtn"
+                        locateInMenu="auto">
+                    </dxi-item>
+                    <dxi-item location="after" name="exportButton" locateInMenu="auto">
+                    </dxi-item>
+                </dxo-toolbar>
+
+                <dxi-column dataField="userName" alignment="center"></dxi-column>
+                <dxi-column dataField="eMail" alignment="center"></dxi-column>
+                <dxi-column dataField="cellNo" alignment="center"></dxi-column>
+                <dxi-column dataField="Role" alignment="center"></dxi-column>
+
+                <dxo-export [enabled]="true" [allowExportSelectedData]="true" [fileName]="'User_List'">
+                </dxo-export>
+            </dx-data-grid>
+        </div>
+
+        <div *ngIf="compState===states.form">
+            <div class="w-lg-75 m-lg-auto">
+                <app-user-info-form [selectedUser]="selectedUser"></app-user-info-form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

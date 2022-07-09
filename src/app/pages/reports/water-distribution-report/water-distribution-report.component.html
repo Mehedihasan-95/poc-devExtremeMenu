@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="dx-card">
+        <div class="col-md-12">
+            <div class="dx-header mb-4">Water Distribution Report</div>
+        </div>
+        <div class="col-md-12">
+            <div class="row align-items-end pb-2">
+
+                <div class="col-md-4 col-sm-12">
+                    <span>
+                        <label class="label">Registration No</label>
+                        <dx-text-box [(value)]="registrationNo" stylingMode="outlined" height="40"
+                            class="fix-label-position" placeholder="Enter Reg no"></dx-text-box>
+                    </span>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <app-date-range-picker [(fromDate)]="fromDate" [(toDate)]="toDate"></app-date-range-picker>
+                </div>
+                <div class="col-md-2 col-sm-12 text-center">
+                    <dx-button icon="search" text="Search" width="150" height="40" type="default" class="search-btn"
+                        (onClick)="getReport()"></dx-button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<div class="mt-2">
+    <div *ngIf="reportData" class="dx-card">
+        <div class="col-md-12">
+            <dx-data-grid 
+                [dataSource]="reportData" 
+                [rowAlternationEnabled]="true" 
+                [showBorders]="true" 
+                [wordWrapEnabled]="true">
+
+                <dxo-paging [pageSize]="10"></dxo-paging>
+
+                <dxo-toolbar>
+                    <dxi-item location="before" name="searchPanel" cssClass="p-dxSearchPanel" locateInMenu="auto">
+                    </dxi-item>
+                    <dxi-item location="before" name="addRowButton" cssClass="p-dxAddBtn" locateInMenu="auto">
+                    </dxi-item>
+                    <dxi-item location="after" name="exportButton" locateInMenu="auto">
+                    </dxi-item>
+                </dxo-toolbar>
+                <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 25, 50, 100]"></dxo-pager>
+                <dxo-search-panel [visible]="true"></dxo-search-panel>
+                
+                <dxi-column dataField="registrationNo" caption="Reg No" alignment="center"></dxi-column>
+                <dxi-column dataField="shipName" caption="Ship Name" alignment="center"></dxi-column>
+                <dxi-column dataField="licenseNo" alignment="center"></dxi-column>
+                <dxi-column dataField="contactPersonName" caption="C. Person Name" width="150"alignment="center"></dxi-column>
+                <dxi-column dataField="mobile" width="150" alignment="center"></dxi-column>
+                <dxi-column dataField="unit" width="80" alignment="center"></dxi-column>
+                <dxi-column dataField="qty" width="90" alignment="center" caption="Dist. Qty"></dxi-column>
+                <dxi-column dataField="amount" width="100" alignment="center"></dxi-column>
+                <dxi-column dataField="status" alignment="center" caption="Dist. Status"></dxi-column>
+               
+                <dxo-export [enabled]="true" [allowExportSelectedData]="true"
+                    [fileName]="'Water_Requisition_Report'">
+                </dxo-export>
+            </dx-data-grid>
+        </div>
+    </div>
+</div>
+</div>

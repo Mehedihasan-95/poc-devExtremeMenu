@@ -6,8 +6,8 @@ import { DxDrawerModule } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewModule, DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { CommonModule } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
 
-import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-side-nav-inner-toolbar',

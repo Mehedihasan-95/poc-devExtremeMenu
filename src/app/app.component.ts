@@ -20,10 +20,14 @@ export class AppComponent {
 
   }
 
+  // isAuthenticated() {
+  //   return this._sessionStorage.getAccessToken()?.length > 1
+  //     && this._sessionStorage.getStoreValue(StoreKeys.ACTIVE_USER)
+  //     && this._sessionStorage.getStoreValue(StoreKeys.NAVIGATION)
+  //     ? true : false;
+  // }
+
   isAuthenticated() {
-    return this._sessionStorage.getAccessToken()?.length > 1
-      && this._sessionStorage.getStoreValue(StoreKeys.ACTIVE_USER)
-      && this._sessionStorage.getStoreValue(StoreKeys.NAVIGATION)
-      ? true : false;
+    return true;
   }
 }

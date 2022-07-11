@@ -1,4 +1,4 @@
-<ng-container *ngIf="isAuthenticated(); else unauthenticated">
+<ng-container *ngIf="isAuthenticated();">
   <app-side-nav-inner-toolbar title="{{appInfo.title}}">
     <router-outlet></router-outlet>
     <app-footer>
@@ -9,6 +9,6 @@
   </app-side-nav-inner-toolbar>
 </ng-container>
 
-<ng-template #unauthenticated>
+<!-- <ng-template #unauthenticated>
   <app-login-form></app-login-form>
-</ng-template>
+</ng-template> -->

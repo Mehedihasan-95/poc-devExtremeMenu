@@ -113,23 +113,11 @@
 // Header logo CSS
 .logo-img {
     .dx-item-content.dx-toolbar-item-content {
-        height: 1.9rem;
-
         div {
             display: inline-flex;
             align-items: center;
             color: #FFF;
             font-weight: 600;
-
-            &::before {
-                content: "";
-                display: block;
-                background-image: url(/assets/img/logo/logo.png);
-                height: 30px;
-                width: 30px;
-                padding-right: 2.5rem;
-                background-repeat: no-repeat;
-            }
         }
     }
 }

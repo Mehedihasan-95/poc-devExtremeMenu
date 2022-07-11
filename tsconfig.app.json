@@ -1,5 +1,6 @@
 {
   "extends": "./tsconfig.json",
+  "compilationMode": "partial",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [],

@@ -5,16 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { DxButtonModule, DxCheckBoxModule, DxContextMenuModule, DxDrawerModule, DxFormModule, DxListModule, DxLoadIndicatorModule, DxScrollViewModule, DxToolbarModule, DxTreeViewModule } from 'devextreme-angular';
-import { SideNavInnerToolbarComponent, SideNavOuterToolbarComponent, SingleCardComponent } from './layouts';
-import { ChangePasswordFormComponent, CreateAccountFormComponent, FooterComponent, HeaderComponent, LoginFormComponent, ResetPasswordFormComponent, SideNavigationMenuComponent, UserPanelComponent } from './login';
-import { LoginFormPanelComponent } from './login/login-form-panel/login-form-panel.component';
+import { SideNavInnerToolbarComponent, SingleCardComponent } from './layouts';
+import { FooterComponent, HeaderComponent, SideNavigationMenuComponent, UserPanelComponent } from './login';
 import { HttpClient, HttpClientModule, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from './AppHttpInterceptor';
-import { MasterDataModule } from './pages/master-data/master-data.module';
-import { ReportsModule } from './pages/reports/reports.module';
-import { WaterRequisitionModule } from './pages/water-requisition/water-requisition.module';
-import { UserManagementModule } from './pages/user-management/user-management.module';
-import { OtpComponent } from './login/otp/otp.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +17,10 @@ import { OtpComponent } from './login/otp/otp.component';
     SingleCardComponent,
     SideNavigationMenuComponent,
     SideNavInnerToolbarComponent,
-    SideNavOuterToolbarComponent,
-    ChangePasswordFormComponent,
-    CreateAccountFormComponent,
     FooterComponent,
     HeaderComponent,
-    LoginFormComponent,
-    ResetPasswordFormComponent,
     UserPanelComponent,
-    LoginFormPanelComponent,
-    OtpComponent,
-
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -45,13 +33,10 @@ import { OtpComponent } from './login/otp/otp.component';
     DxTreeViewModule,
     DxContextMenuModule,
     DxListModule,
+    DxFormModule,
     DxDrawerModule,
     DxScrollViewModule,
-    HttpClientModule,
-    MasterDataModule,
-    ReportsModule,
-    WaterRequisitionModule,
-    UserManagementModule
+    HttpClientModule
   ],
   providers: [
     AuthService,

@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
-import { DxButtonModule, DxCheckBoxModule, DxContextMenuModule, DxDrawerModule, DxFormModule, DxListModule, DxLoadIndicatorModule, DxScrollViewModule, DxToolbarModule, DxTreeViewModule } from 'devextreme-angular';
+import { DxButtonModule, DxCheckBoxModule, DxContextMenuModule, DxDataGridModule, DxDrawerModule, DxFormModule, DxListModule, DxLoadIndicatorModule, DxScrollViewModule, DxToolbarModule, DxTreeViewModule } from 'devextreme-angular';
 import { SideNavInnerToolbarComponent, SingleCardComponent } from './layouts';
 import { FooterComponent, HeaderComponent, SideNavigationMenuComponent, UserPanelComponent } from './login';
 import { HttpClient, HttpClientModule, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppHttpInterceptor } from './AppHttpInterceptor';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FooterComponent,
     HeaderComponent,
     UserPanelComponent,
-    ProfileComponent
+    ProfileComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     DxListModule,
     DxFormModule,
     DxDrawerModule,
+    DxDataGridModule,
     DxScrollViewModule,
     HttpClientModule
   ],

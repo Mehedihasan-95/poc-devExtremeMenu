@@ -4,17 +4,19 @@ import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { TasksComponent } from './pages/tasks/tasks.component';
 const routes: Routes = [
-  
+  {
+    path: 'task',
+    component: TasksComponent
+    },
   {
     path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AuthGuardService]
+    component: ProfileComponent
   },
   {
     path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuardService]
+    component: HomeComponent
   },
   {
     path: '**',

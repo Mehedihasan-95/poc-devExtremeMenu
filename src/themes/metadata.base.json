@@ -1,5 +1,41 @@
 {
   "items": [
+      {
+          "key": "$base-accent",
+          "value": "rgba(33, 46, 62, 1)"
+      },
+      {
+          "key": "$base-success",
+          "value": "rgba(40, 167, 69, 1)"
+      },
+      {
+          "key": "$base-danger",
+          "value": "rgba(220, 53, 69, 1)"
+      },
+      {
+          "key": "$navbar-tab-bg",
+          "value": "rgba(24, 37, 53, 1)"
+      },
+      {
+          "key": "$navbar-tab-color",
+          "value": "rgba(255, 255, 255, 1)"
+      },
+      {
+          "key": "$navbar-tab-selected-bg",
+          "value": "rgba(82, 95, 119, 1)"
+      },
+      {
+          "key": "$navbar-tab-selected-color",
+          "value": "rgba(255, 255, 255, 1)"
+      },
+      {
+          "key": "$base-focus-color",
+          "value": "rgba(255, 255, 255, 1)"
+      },
+      {
+        "key": "$load-indicator-segment-bg-color",
+        "value": "rgba(82, 95, 119, 1)"
+    }
   ],
   "baseTheme": "material.blue.light",
   "assetsBasePath": "../../../node_modules/devextreme/dist/css/",

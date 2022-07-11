@@ -11,6 +11,10 @@ export const navigation = [
        {
         text: 'Profile',
         path: '/profile'
+      },
+      {
+        text: 'Tasks',
+        path: '/task'
       }
     ]
   }

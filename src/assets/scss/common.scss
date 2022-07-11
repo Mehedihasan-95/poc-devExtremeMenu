@@ -6,7 +6,8 @@
     --color-white: #FFFF;
 
 }
-.loader{
+
+.loader {
     background-image: url(../img/loader.gif);
     background-repeat: no-repeat;
     background-position: center;
@@ -20,6 +21,7 @@
     right: 0;
     z-index: 999;
 }
+
 .dx-card {
     overflow: hidden !important;
     -webkit-box-shadow: 0 1px 6px #0000002e !important;
@@ -29,11 +31,13 @@
     margin: auto !important;
     padding: 1rem !important;
 }
-.label{
+
+.label {
     font-size: .9rem;
     color: #0009;
     padding-bottom: 0.5rem;
 }
+
 .dx-datagrid-headers .dx-datagrid-table .dx-row>td .dx-sort,
 .dx-datagrid-headers .dx-datagrid-table .dx-row>td .dx-sort-indicator,
 .dx-datagrid-headers .dx-datagrid-table .dx-row>td:hover .dx-datagrid-text-content {
@@ -43,22 +47,36 @@
 .dx-datagrid-headers .dx-datagrid-table .dx-row>td:hover .dx-sort {
     color: #3CD7FF;
 }
+
 .dx-datagrid-header-panel {
     border-bottom: 1px solid #e0e0e0;
     padding: 0;
     background-color: #fff;
-  }
-  .dx-treelist .dx-treelist-table .dx-header-row > td {
+}
+
+.dx-treelist .dx-treelist-table .dx-header-row>td {
     padding-top: .8rem;
     padding-bottom: .8rem;
+}
+.dx-loadindicator-segment-inner {
+    position: relative;
+    height: 100%;
+    border-color: #212e3e #212e3e transparent;
+    border-width: .12em;
+    border-style: solid;
+    -webkit-animation: none;
+    animation: none;
+    border-radius: 50%;
   }
-  .dx-treelist .dx-treelist-content .dx-treelist-table .dx-row > td.dx-cell-modified:not(.dx-field-item-content):not(.dx-validation-pending),
-.dx-treelist .dx-treelist-content .dx-treelist-table .dx-row > td.dx-treelist-invalid:not(.dx-field-item-content):not(.dx-validation-pending):not(.dx-treelist-select-all),
+
+.dx-treelist .dx-treelist-content .dx-treelist-table .dx-row>td.dx-cell-modified:not(.dx-field-item-content):not(.dx-validation-pending),
+.dx-treelist .dx-treelist-content .dx-treelist-table .dx-row>td.dx-treelist-invalid:not(.dx-field-item-content):not(.dx-validation-pending):not(.dx-treelist-select-all),
 .dx-treelist-headers .dx-treelist-table .dx-row>td .dx-sort,
 .dx-treelist-headers .dx-treelist-table .dx-row>td .dx-sort-indicator,
 .dx-treelist-headers .dx-treelist-table .dx-row>td:hover .dx-treelist-text-content {
-  color: #3CD7FF;
+    color: #3CD7FF;
 }
+
 .menu-container dx-tree-view {
     background: var(--color-primary);
 
@@ -213,13 +231,18 @@
             border: 1px solid rgba(255, 255, 255, 0.24);
         }
     }
+
     &.otp {
-        .dx-texteditor-input-container::before{
+        .dx-texteditor-input-container::before {
             width: 0;
             margin-left: 0;
         }
-        input{text-align: center;}
-        .dx-placeholder{
+
+        input {
+            text-align: center;
+        }
+
+        .dx-placeholder {
             right: 0;
             margin-left: 0;
             text-align: center;
@@ -449,6 +472,12 @@ a.assign-btn {
     background: var(--color-primary);
     padding: .5rem 2rem;
     color: #fff !important;
-    &:hover{ background: #0490b3;}
-    &:active{background: #027592;}
-  }
+
+    &:hover {
+        background: #0490b3;
+    }
+
+    &:active {
+        background: #027592;
+    }
+}

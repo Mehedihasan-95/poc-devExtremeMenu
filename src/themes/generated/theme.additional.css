@@ -7184,16 +7184,6 @@
   width: 100%;
   position: absolute;
 }
-.dx-swatch-additional .dx-loadindicator-segment-inner {
-  position: relative;
-  height: 100%;
-  border-color: #03a9f4 #03a9f4 transparent;
-  border-width: .12em;
-  border-style: solid;
-  -webkit-animation: none;
-  animation: none;
-  border-radius: 50%;
-}
 .dx-swatch-additional .dx-loadindicator-segment0,
 .dx-swatch-additional .dx-loadindicator-segment2 {
   width: 50%;

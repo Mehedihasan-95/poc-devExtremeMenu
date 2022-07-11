@@ -1,8 +1,6 @@
 :root {
-    --color-primary: #099FC5;
-    --color-secondary: #8CE3F9;
-    --color-menu: #004F63;
-    --color-selected: #3CD7FF;
+    --color-primary: #212E3E;
+    --color-selected: #525F77;
     --color-white: #FFFF;
 
 }
@@ -58,6 +56,7 @@
     padding-top: .8rem;
     padding-bottom: .8rem;
 }
+
 .dx-loadindicator-segment-inner {
     position: relative;
     height: 100%;
@@ -67,7 +66,7 @@
     -webkit-animation: none;
     animation: none;
     border-radius: 50%;
-  }
+}
 
 .dx-treelist .dx-treelist-content .dx-treelist-table .dx-row>td.dx-cell-modified:not(.dx-field-item-content):not(.dx-validation-pending),
 .dx-treelist .dx-treelist-content .dx-treelist-table .dx-row>td.dx-treelist-invalid:not(.dx-field-item-content):not(.dx-validation-pending):not(.dx-treelist-select-all),
@@ -78,35 +77,78 @@
 }
 
 .menu-container dx-tree-view {
-    background: var(--color-primary);
+    background: linear-gradient(#182535 0%, #212E3E 100%);
 
     .dx-treeview-node {
         font-weight: 600 !important;
-        background: var(--color-menu);
-        color: var(--color-secondary);
-        border-bottom: 1px solid #099FC5 !important;
-
-        .dx-treeview-toggle-item-visibility {
-            color: var(--color-secondary);
+        background: transparent;
+        color: var(--color-white);
+        border-bottom: none !important;
+        margin-bottom: 2px;
+        .dx-treeview-item{
+            padding: 12px 8px;
         }
 
-        &.dx-state-selected>.dx-treeview-item * {
-            color: #FFF !important;
+        .dx-treeview-toggle-item-visibility {
+            color: var(--color-white);
+            z-index: 2;
+        }
+
+        &.dx-state-selected{
+            position: relative;
+            z-index: 2;
+            &::before{
+                content: '';
+                background: var(--color-selected);
+                width: 14.8rem;
+                border-radius: 4px;
+                height: auto;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            > .dx-treeview-item * {
+                color: #FFF !important;
+            }
         }
 
         &:not(.dx-state-focused)>.dx-treeview-item.dx-state-hover {
-            background: transparent !important;
             color: #ffffff;
+            background: transparent !important;
+            position: relative;
+            z-index: 2;
+            &::before{
+                content: '';
+                background: var(--color-selected);
+                width: 14.8rem;
+                border-radius: 4px;
+                height: auto;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
         }
 
         // menu child color
         .dx-treeview-node-container {
+            &.dx-treeview-node-container-opened{
+                background: var(--color-primary);
+                margin: 2px 7px 0;
+                border-radius: 4px;
+            }
             .dx-treeview-node-is-leaf {
-                background: #00708C;
-                border-bottom: 1px solid #099FC5;
-
+                margin-bottom: 2px;
                 &.dx-state-selected {
-                    background: #0384A5;
+                    background: var(--color-selected);
+                    border-radius: 4px;
 
                     .dx-treeview-item>.dx-treeview-item-content>span {
                         display: flex;
